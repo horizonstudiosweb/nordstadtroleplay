@@ -486,8 +486,7 @@ main {
 .training-card,
 .training-warning,
 .progress-main-card,
-.progress-detail-card,
-.product-note {
+.progress-detail-card {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--card-border);
@@ -514,8 +513,7 @@ main {
 .training-card:hover,
 .training-warning:hover,
 .progress-main-card:hover,
-.progress-detail-card:hover,
-.product-note:hover {
+.progress-detail-card:hover {
   transform: translateY(-8px);
   border-color: rgba(127, 178, 255, 0.38);
   background: var(--card-hover);
@@ -542,8 +540,7 @@ main {
 .training-warning h3,
 .download-modal h2,
 .progress-main-card h3,
-.progress-detail-card h4,
-.product-note h4 {
+.progress-detail-card h4 {
   position: relative;
   font-family: "Montserrat", sans-serif;
   font-size: 1.45rem;
@@ -563,7 +560,6 @@ main {
 .download-modal p,
 .progress-main-card p,
 .progress-detail-card p,
-.product-note p,
 .waitlist-banner p {
   position: relative;
   color: var(--muted);
@@ -799,15 +795,6 @@ main {
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.product-note {
-  margin-top: 22px;
-  padding: 24px;
-}
-
-.product-note h4 {
-  font-size: 1.2rem;
 }
 
 .status-grid {
