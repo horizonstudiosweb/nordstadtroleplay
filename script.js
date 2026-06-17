@@ -37,33 +37,6 @@ const projectStatuses = [
   }
 ];
 
-/*
-  Status-Optionen:
-
-  active   = weißer leuchtender Punkt
-  testing  = blauer leuchtender Punkt
-  wip      = gelber Punkt
-  closed   = roter Punkt
-
-  Du kannst den Statusbereich jederzeit oben ändern.
-*/
-
-/*
-  Intro:
-
-  enabled: true  = Intro erscheint beim Öffnen der Website
-  enabled: false = Intro ist ausgeschaltet
-*/
-
-/*
-  Bewerbungs-Popup:
-
-  enabled: true  = Pop-up erscheint
-  enabled: false = Pop-up ist ausgeschaltet
-
-  delayInSeconds bestimmt, nach wie vielen Sekunden das Pop-up erscheint.
-*/
-
 const navButtons = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll(".tab-section");
 const openTabButtons = document.querySelectorAll("[data-tab-open]");
