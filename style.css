@@ -16,6 +16,7 @@
   --wip: #f0c866;
   --closed: #ef4b4b;
   --success: #64e091;
+  --orange: #ffad4d;
 }
 
 * {
@@ -214,7 +215,7 @@ body.intro-active {
   top: 22px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(1240px, calc(100% - 36px));
+  width: min(1320px, calc(100% - 36px));
   min-height: 72px;
   padding: 0 18px;
   display: flex;
@@ -253,7 +254,7 @@ body.intro-active {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 12px 18px;
+  padding: 12px 16px;
   border-radius: 999px;
   color: var(--muted);
   background: transparent;
@@ -453,6 +454,10 @@ main {
   margin-bottom: 34px;
 }
 
+.section-header.compact {
+  margin-bottom: 24px;
+}
+
 .section-header h2 {
   font-family: "Montserrat", sans-serif;
   max-width: 800px;
@@ -465,7 +470,8 @@ main {
 .card-grid,
 .project-grid,
 .status-grid,
-.training-grid {
+.training-grid,
+.progress-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
@@ -478,7 +484,10 @@ main {
 .wide-card,
 .timeline-item,
 .training-card,
-.training-warning {
+.training-warning,
+.progress-main-card,
+.progress-detail-card,
+.product-note {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--card-border);
@@ -503,7 +512,10 @@ main {
 .wide-card:hover,
 .timeline-item:hover,
 .training-card:hover,
-.training-warning:hover {
+.training-warning:hover,
+.progress-main-card:hover,
+.progress-detail-card:hover,
+.product-note:hover {
   transform: translateY(-8px);
   border-color: rgba(127, 178, 255, 0.38);
   background: var(--card-hover);
@@ -528,7 +540,10 @@ main {
 .timeline-content h3,
 .training-card h3,
 .training-warning h3,
-.download-modal h2 {
+.download-modal h2,
+.progress-main-card h3,
+.progress-detail-card h4,
+.product-note h4 {
   position: relative;
   font-family: "Montserrat", sans-serif;
   font-size: 1.45rem;
@@ -545,7 +560,11 @@ main {
 .timeline-content p,
 .training-card p,
 .training-warning p,
-.download-modal p {
+.download-modal p,
+.progress-main-card p,
+.progress-detail-card p,
+.product-note p,
+.waitlist-banner p {
   position: relative;
   color: var(--muted);
   line-height: 1.75;
@@ -636,6 +655,159 @@ main {
   color: #06111f;
   background: var(--white);
   width: fit-content;
+}
+
+.progress-section {
+  margin-top: 52px;
+}
+
+.progress-main-card {
+  padding: 34px;
+}
+
+.progress-card-header,
+.progress-detail-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.progress-card-header h3 span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  letter-spacing: 0;
+}
+
+.progress-card-header strong {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.08em;
+  color: var(--white);
+  text-shadow: 0 0 30px rgba(127, 178, 255, 0.22);
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.progress-bar.big {
+  height: 18px;
+  margin-top: 30px;
+}
+
+.progress-bar.small {
+  height: 10px;
+  margin-top: 18px;
+}
+
+.progress-fill {
+  position: relative;
+  width: var(--progress);
+  height: 100%;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, rgba(127, 178, 255, 0.75), rgba(255, 255, 255, 0.95));
+  box-shadow:
+    0 0 18px rgba(127, 178, 255, 0.45),
+    0 0 38px rgba(127, 178, 255, 0.22);
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -45%;
+  width: 42%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+  transform: skewX(-18deg);
+  animation: progressShine 2.4s ease-in-out infinite;
+}
+
+.progress-bar.orange .progress-fill {
+  background:
+    linear-gradient(90deg, rgba(255, 173, 77, 0.7), rgba(255, 255, 255, 0.95));
+  box-shadow:
+    0 0 18px rgba(255, 173, 77, 0.45),
+    0 0 38px rgba(255, 173, 77, 0.22);
+}
+
+@keyframes progressShine {
+  0% {
+    left: -45%;
+  }
+
+  48% {
+    left: 110%;
+  }
+
+  100% {
+    left: 110%;
+  }
+}
+
+.progress-grid {
+  margin-top: 22px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.progress-detail-card {
+  padding: 24px;
+}
+
+.progress-detail-top h4 {
+  font-size: 1.2rem;
+}
+
+.progress-detail-top span {
+  font-family: "Montserrat", sans-serif;
+  color: var(--white);
+  font-weight: 900;
+  font-size: 1.15rem;
+}
+
+.product-waitlist {
+  border-color: rgba(255, 173, 77, 0.36);
+  background:
+    linear-gradient(145deg, rgba(255, 173, 77, 0.08), rgba(255, 255, 255, 0.06));
+}
+
+.waitlist-banner {
+  margin-bottom: 28px;
+  padding: 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 173, 77, 0.34);
+  background: rgba(255, 173, 77, 0.08);
+}
+
+.waitlist-banner span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #06111f;
+  background: var(--orange);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-note {
+  margin-top: 22px;
+  padding: 24px;
+}
+
+.product-note h4 {
+  font-size: 1.2rem;
 }
 
 .status-grid {
@@ -898,7 +1070,7 @@ main {
   letter-spacing: -0.03em;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1240px) {
   .navbar {
     height: auto;
     padding: 14px;
@@ -937,7 +1109,8 @@ main {
   .card-grid,
   .project-grid,
   .status-grid,
-  .training-grid {
+  .training-grid,
+  .progress-grid {
     grid-template-columns: 1fr;
   }
 
@@ -952,6 +1125,10 @@ main {
 
   .wide-card span {
     font-size: 2rem;
+  }
+
+  .progress-card-header {
+    flex-direction: column;
   }
 }
 
@@ -970,7 +1147,8 @@ main {
     padding: 28px;
   }
 
-  .training-top {
+  .training-top,
+  .progress-detail-top {
     flex-direction: column;
   }
 
